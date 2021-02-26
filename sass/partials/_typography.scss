@@ -1,0 +1,148 @@
+:root {
+    /*makes it easier to calculate: 62.5% = 10px / 1rem*/
+    font-size: 62.5%;
+}
+
+body {
+    color: map-get($colors, black);
+    font-size: map-get(map-get($fonts, size), s);
+    font-family: map-get(map-get($fonts, family), body);
+}
+
+h1 {
+    font-family: map-get(map-get($fonts, family), title);
+}
+
+h2 {
+    font-family: map-get(map-get($fonts, family), subhead);
+}
+
+.call-to-action-txt {
+    font-family: map-get(map-get($fonts, family), call-to-action);
+}
+
+p {
+    line-height: 190%;
+}
+
+button {
+    font-size: map-get(map-get($fonts, size), s);
+}
+
+.price {
+    font-size: map-get(map-get($fonts, size), m);
+}
+
+//header {}
+
+footer {
+
+    .copyright {
+        font-size: map-get(map-get($fonts, size), xs);
+    }
+}
+
+textarea {
+    font-family: map-get(map-get($fonts, family), body);
+}
+
+.card-product-create-your-own-container {
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.account-loggedin-title {
+    font-size: map-get(map-get($fonts, size), s);
+    font-weight: normal;
+}
+
+.hero {
+    h1 {
+        text-shadow: $shadow;
+        color: map-get($colors, white);
+        font-size: map-get(map-get($fonts, size), xxl);
+    }
+}
+
+.header-freedelivery-txt {
+    font-size: map-get(map-get($fonts, size), xs);
+}
+
+form {
+
+    h1 {
+        font-size: map-get(map-get($fonts, size), l);
+    }
+
+    div {
+
+        label {
+            font-weight: 600;
+        }
+    }
+}
+
+footer {
+
+    h1 {
+        font-size: map-get(map-get($fonts, size), s);
+    }
+
+    .footer-bottom {
+        font-size: map-get(map-get($fonts, size), xs);
+    }
+}
+
+.delete-container {
+
+    h1,
+    h2 {
+        font-size: map-get(map-get($fonts, size), m);
+    }
+}
+
+.cart-empty-container {
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 3rem;
+}
+
+.cart-container {
+
+    .total-container {
+        font-size: map-get(map-get($fonts, size), l);
+        font-weight: bolder;
+    }
+
+    h1 {
+        font-size: map-get(map-get($fonts, size), xl);
+    }
+}
+
+.cart-item-product-info {
+    font-size: map-get(map-get($fonts, size), m);
+}
+
+.cart-item-info-link-container {
+    font-size: map-get(map-get($fonts, size), s);
+}
+
+.cart-item-price {
+    font-size: map-get(map-get($fonts, size), m);
+    font-weight: 600;
+}
+
+.cards {
+
+    h1 {
+        text-shadow: $shadow;
+        color: map-get($colors, white);
+        font-size: map-get(map-get($fonts, size), xl);
+    }
+
+    h2 {
+        text-shadow: $shadow;
+        color: map-get($colors, white);
+        font-size: map-get(map-get($fonts, size), m);
+    }
+}

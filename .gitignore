@@ -1,0 +1,5 @@
+/_workfiles
+/node_modules/
+package-lock.json
+/strapi/node_modules
+/strapi/build/

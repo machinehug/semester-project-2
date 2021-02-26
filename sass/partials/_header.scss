@@ -1,0 +1,214 @@
+header {
+    border-bottom: $border;
+    background: map-get($colors, white);
+
+    .nav-top {
+        border-bottom: $border;
+        padding: 1rem 0;
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            .nav-top-links {
+
+                nav {
+
+                    ul {
+                        display: flex;
+                    }
+                }
+
+                @media only screen and (max-width: map-get($media-widths, large-mobile)) {
+                    display: none;
+                }
+            }
+
+            // logo
+            img {
+                min-height: 100%;
+                width: 100%;
+                max-width: 25rem;
+            }
+
+            .hamburger,
+            .login {
+                cursor: pointer;
+            }
+
+            .hamburger {
+                display: none;
+                cursor: pointer;
+
+                @media only screen and (max-width: map-get($media-widths, large-mobile)) {
+                    display: block;
+                    z-index: 9999;
+                }
+
+                .hamburger-inner {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    width: 5rem;
+                    height: 3rem;
+
+                    .line {
+                        width: 3rem;
+                        height: .3rem;
+                        background: map-get($colors, black);
+                        margin: .3rem;
+                        border-radius: $border-radius;
+                    }
+
+                    .hamburger-close-animation {
+                        transform: rotate(90deg);
+                        transition: 1s ease-in-out;
+                        position: absolute;
+                    }
+
+                    .line0 {
+                        transform: rotate(45deg);
+                    }
+
+                    .line1 {
+                        opacity: 0;
+                    }
+
+                    .line2 {
+                        transform: rotate(135deg);
+                    }
+                }
+            }
+        }
+    }
+
+    .nav-bottom {
+        padding: 1.5rem 0;
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            nav {
+
+                @media only screen and (max-width: map-get($media-widths, mobile)) {
+                    width: 100%;
+                }
+
+                ul {
+                    display: flex;
+                    justify-content: flex-end;
+
+                    @media only screen and (max-width: map-get($media-widths, mobile)) {
+                        justify-content: flex-end;
+                    }
+                }
+            }
+
+            .nav-desktop {
+                min-width: fit-content;
+
+                ul {
+                    justify-content: flex-start;
+
+                }
+
+                @media only screen and (max-width: map-get($media-widths, large-mobile)) {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+i {
+    font-size: 2rem;
+}
+
+// mobile
+.nav-mobile {
+    background: map-get($colors, lightgrey);
+    position: fixed;
+    z-index: 999;
+    width: 85%;
+    right: 0;
+    top: 0;
+    height: 100%;
+    border-left: $border;
+    box-shadow: $shadow;
+
+    @keyframes nav-mobile-slide-in {
+        0% {
+            width: 0%;
+        }
+
+        100% {
+            width: 85%;
+        }
+    }
+
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem;
+        border-top: $border;
+        margin-top: 8.4rem;
+
+        h1 {
+            margin: 0;
+        }
+
+        i {
+            font-size: 3rem;
+        }
+    }
+
+    nav {
+        border-top: $border;
+
+        ul {
+            padding: 1rem 0 1rem 3rem;
+
+            li {
+                margin: 1rem 0;
+                white-space: nowrap;
+            }
+        }
+    }
+}
+
+.active {
+    border: $border;
+    background: map-get($colors, purple);
+    border-radius: $border-radius;
+    color: map-get($colors, white);
+}
+
+.logout-btn {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.header-freedelivery-txt {
+
+    @media only screen and (max-width: map-get($media-widths, mobile)) {
+        display: none;
+    }
+}
+
+nav {
+
+    ul {
+        li {
+
+            .login {
+                text-decoration: underline;
+            }
+        }
+    }
+}

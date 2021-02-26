@@ -1,0 +1,113 @@
+.cart-empty-container {
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 3rem;
+}
+
+.cart-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+
+    .cost-container {
+        margin-bottom: 4rem;
+    }
+
+    h1 {
+        width: 100%;
+        text-align: center;
+        margin: 0 0 2rem 0;
+    }
+
+    section {
+        width: 100%;
+        max-width: fit-content;
+        padding: 0 2rem;
+        margin-top: 3rem;
+    }
+
+    .payment-wrapper {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 2rem;
+    }
+
+    .cart-items-container {
+        min-width: 55rem;
+        text-align: center;
+
+        @media only screen and (max-width: map-get($media-widths, mobile)) {
+            min-width: 100%;
+        }
+
+        .cart-item,
+        .cart-item-input,
+        .cart-item-product-info {
+            display: flex;
+            height: fit-content;
+            align-items: center;
+        }
+
+        .cart-item {
+            justify-content: space-between;
+            margin-bottom: 3rem;
+
+            @media only screen and (max-width: map-get($media-widths, mobile)) {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .cart-item-product-info {
+                width: 100%;
+                max-width: 30rem;
+                display: flex;
+
+                @media only screen and (max-width: map-get($media-widths, mobile)) {
+                    min-width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                }
+
+                div {
+
+                    @media only screen and (max-width: map-get($media-widths, mobile)) {
+                        min-width: 20rem;
+                    }
+                }
+
+                .cart-img {
+                    min-width: 10rem;
+                    min-height: 10rem;
+                    border-radius: 50%;
+                    margin-right: 2rem;
+                }
+
+                .cart-item-info-link-container {
+                    margin-top: 1rem;
+                }
+            }
+
+            .cart-item-input {
+                display: flex;
+                padding-left: 2rem;
+                justify-content: flex-end;
+
+                @media only screen and (max-width: map-get($media-widths, tablet)) {
+                    min-width: 20rem;
+                    padding: 0;
+                    align-self: flex-end;
+                    padding-right: 4rem;
+                }
+
+                .cart-item-price {
+                    margin-right: 2rem;
+                }
+
+                .cross {
+                    margin-left: 2rem;
+                    font-size: 2.3rem;
+                }
+            }
+        }
+    }
+}

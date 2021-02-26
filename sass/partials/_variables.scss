@@ -1,0 +1,84 @@
+// @font-face code from: https://css-tricks.com/snippets/css/using-font-face/
+
+// h1
+@font-face {
+    font-family: 'Title';
+    src: url('../fonts/Nunito_bold/Nunito-Bold.eot'); // IE9
+    src: url('../fonts/Nunito_bold/Nunito-Bold.eot?#iefix') format('embedded-opentype'), // IE6 - IE8
+        url('../fonts/Nunito_bold/Nunito-Bold.woff2') format('woff2'), // modern browsers
+        url('../fonts/Nunito_bold/Nunito-Bold.woff') format('woff'), // older browsers
+        url('../fonts/Nunito_bold/Nunito-Bold.ttf') format('truetype'), // Safari, Android and iOS
+        url('../fonts/Nunito_bold/Nunito-Bold.svg#svgFontName') format('svg'); // old iOS
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+// h2
+@font-face {
+    font-family: 'Subhead';
+    src: url('../fonts/Nunito_extralight/Nunito-ExtraLight.eot'); // IE9
+    src: url('../fonts/Nunito_extralight/Nunito-ExtraLight.eot?#iefix') format('embedded-opentype'), // IE6 - IE8
+        url('../fonts/Nunito_extralight/Nunito-ExtraLight.woff2') format('woff2'), // modern browsers
+        url('../fonts/Nunito_extralight/Nunito-ExtraLight.woff') format('woff'), // older browsers
+        url('../fonts/Nunito_extralight/Nunito-ExtraLight.ttf') format('truetype'), // Safari, Android and iOS
+        url('../fonts/Nunito_extralight/Nunito-ExtraLight.svg#svgFontName') format('svg'); // old iOS
+    font-weight: lighter;
+    font-style: normal;
+    font-display: swap;
+}
+
+// body
+@font-face {
+    font-family: 'Body';
+    src: url('../fonts/Open_Sans_regular/OpenSans-Regular.eot'); // IE9
+    src: url('../fonts/Open_Sans_regular/OpenSans-Regular.eot?#iefix') format('embedded-opentype'), // IE6 - IE8
+        url('../fonts/Open_Sans_regular/OpenSans-Regular.woff2') format('woff2'), // modern browsers
+        url('../fonts/Open_Sans_regular/OpenSans-Regular.woff') format('woff'), // older browsers
+        url('../fonts/Open_Sans_regular/OpenSans-Regular.ttf') format('truetype'), // Safari, Android and iOS
+        url('../fonts/Open_Sans_regular/OpenSans-Regular.svg#svgFontName') format('svg'); // old iOS
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+$font-family-body: "Body";
+$font-family-title: "Title";
+$font-family-subhead: "Subhead";
+
+$fonts: (family: (body: $font-family-body,
+        title: $font-family-title,
+        subhead: $font-family-subhead,
+    ),
+
+    size: (
+        xs: 1.2rem,
+        s: 1.6rem,
+        m: 2.2rem,
+        l: 3rem,
+        xl: 4rem,
+        xxl: 5rem,
+        xxxl: 6rem),
+);
+
+$colors: (pink: #AB5486,
+    red: red,
+    white: #fff,
+    purple: #6b48ff,
+    black: rgb(28, 28, 28),
+    lightgrey: #FAF7F7,
+    grey: rgb(182, 182, 182),
+    darkgrey: rgb(53, 53, 53),
+);
+
+$media-widths: (mobile: 470px,
+    large-mobile: 550px,
+    tablet: 740px,
+    desktop: 1028px,
+    large-desktop: 1029px,
+);
+
+//other
+$shadow: 0 6px 12px rgba(0, 0, 0, 0.123);
+$border-radius: 7px;
+$border: 1px solid map-get($colors, grey);
