@@ -65,6 +65,13 @@ $RECYCLE.BIN/
 # Logs and databases
 ############################
 
+.tmp
+*.log
+*.sql
+*.sqlite
+*.sqlite3
+
+
 ############################
 # Misc.
 ############################
@@ -72,8 +79,9 @@ $RECYCLE.BIN/
 *#
 ssl
 .idea
-.vscode
 nbproject
+public/uploads/*
+!public/uploads/.gitkeep
 
 ############################
 # Node.js
@@ -86,7 +94,6 @@ logs
 results
 node_modules
 .node_history
-
 
 ############################
 # Tests
@@ -102,5 +109,6 @@ coverage
 .env
 license.txt
 exports
-.cache
+*.cache
 build
+.strapi-updater.json

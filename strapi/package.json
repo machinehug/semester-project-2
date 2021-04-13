@@ -1,8 +1,8 @@
 {
-  "name": "api",
+  "name": "strapi",
   "private": true,
   "version": "0.1.0",
-  "description": "Noroff Semester project 2",
+  "description": "A Strapi application",
   "scripts": {
     "develop": "strapi develop",
     "start": "strapi start",
@@ -11,27 +11,27 @@
   },
   "devDependencies": {},
   "dependencies": {
-    "strapi": "3.2.5",
-    "strapi-admin": "3.2.5",
-    "strapi-utils": "3.2.5",
-    "strapi-plugin-content-type-builder": "3.2.5",
-    "strapi-plugin-content-manager": "3.2.5",
-    "strapi-plugin-users-permissions": "3.2.5",
-    "strapi-plugin-email": "3.2.5",
-    "strapi-plugin-upload": "3.2.5",
-    "strapi-connector-bookshelf": "3.2.5",
-    "knex": "<0.20.0",
-    "sqlite3": "latest"
+    "knex": "0.21.18",
+    "sqlite3": "5.0.0",
+    "strapi": "3.5.4",
+    "strapi-admin": "3.5.4",
+    "strapi-connector-bookshelf": "3.5.4",
+    "strapi-plugin-content-manager": "3.5.4",
+    "strapi-plugin-content-type-builder": "3.5.4",
+    "strapi-plugin-email": "3.5.4",
+    "strapi-plugin-upload": "3.5.4",
+    "strapi-plugin-users-permissions": "3.5.4",
+    "strapi-utils": "3.5.4"
   },
   "author": {
     "name": "A Strapi developer"
   },
   "strapi": {
-    "uuid": "8715cbed-a6ed-4700-bc41-444293351d4e"
+    "uuid": "ed2457ad-04ac-402c-bea4-52701074b8f9"
   },
   "engines": {
-    "node": ">=10.0.0",
-    "npm": ">=6.0.0"
+    "node": ">=10.16.0 <=14.x.x",
+    "npm": "^6.0.0"
   },
   "license": "MIT"
 }
