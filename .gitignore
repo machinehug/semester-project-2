@@ -1,3 +1,3 @@
-_workfiles
-node_modules/
-strapi/
+/_workfiles
+/node_modules
+/strapi

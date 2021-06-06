@@ -15,6 +15,7 @@ import displayMessage from './constants/displayMessage.js';
     try {
         const response = await fetch(url);
         const json = await response.json();
+        console.log("response", response);
 
         createHeader();
         createAdminBanner();
@@ -22,10 +23,12 @@ import displayMessage from './constants/displayMessage.js';
         createMenu(json);
         createFeaturedProducts(json);
         createFooter();
-        handleSearch(json);
-    } catch {
-        const container = document.querySelector(".container");
+        handleSearch(json, createMenu);
+    } catch (error) {
+        console.log(error);
+        const container = document.querySelector(".menu-wrapper .cards");
         container.innerHTML = displayMessage("message-error message-error-center", "An error occurred. Please try again later.");
         createHeader();
+        createFooter();
     };
 })();

@@ -25,7 +25,6 @@ export default async function loginUser(username, password) {
 
         if (json.user) {
             saveToLocalStorage(tokenKey, json.jwt);
-            // I only want to store the username, and not every sensitive data you can see in json.user
             saveToLocalStorage(userKey, json.user.username);
             location.href = "/account.html";
         };
@@ -33,7 +32,6 @@ export default async function loginUser(username, password) {
         if (json.error) {
             return errorMessageContainer.innerHTML = displayMessage("message-error", "Invalid username/email and/or password. If you forgot any of those, contact your admin for help.");
         };
-
     } catch {
         return errorMessageContainer.innerHTML = displayMessage("message-error", "An error occurred. Please try again later.");
     };

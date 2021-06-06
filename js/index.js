@@ -35,7 +35,6 @@ function addHeroPicture(json) {
     loader.style.display = "none";
 
     const container = document.querySelector(".index-container");
-
     container.innerHTML = `
             <div class="hero" style="background: url('../strapi/public${json.hero_banner.url}') center no-repeat">
                 <a href="menu.html">

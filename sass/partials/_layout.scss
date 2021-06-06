@@ -1,242 +1,242 @@
 :root {
-    /*no scrollbar in Firefox*/
-    scrollbar-width: none;
-    /*no scrollbar in IE*/
-    -ms-overflow-style: none;
+  /*no scrollbar in Firefox*/
+  scrollbar-width: none;
+  /*no scrollbar in IE*/
+  -ms-overflow-style: none;
 }
 
 /*no scrollbar in Chrome and Safari*/
 ::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 html,
 body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
 }
 
 body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    overflow-y: scroll;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  overflow-y: scroll;
 }
 
 html {
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
 }
 
 *,
 *:before,
 *:after {
-    box-sizing: inherit;
-    -webkit-box-sizing: inherit;
-    -moz-box-sizing: inherit;
+  box-sizing: inherit;
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
 }
 
 // wraps the entire page except the header and footer
 .wrapper {
-    flex: 1 0 auto;
-    margin-bottom: 10rem;
+  flex: 1 0 auto;
+  margin-bottom: 10rem;
 }
 
-// first child of .wrapper
 .container {
-    width: 100%;
-    max-width: 140rem; // max-width of the entire page
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    padding: 0.5rem;
+  width: 100%;
+  max-width: 140rem;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 0.5rem;
 }
 
 a {
-    color: map-get($colors, black);
-    text-decoration: none;
-    //width: fit-content;
+  color: map-get($colors, black);
+  text-decoration: none;
 }
 
 button {
-    cursor: pointer;
-    background: map-get($colors, black);
-    color: map-get($colors, white);
-    font-weight: 600;
-    text-transform: uppercase;
-    width: 100%;
-    padding: 1rem 5rem;
-    height: 5rem;
-    margin: 1rem 0;
-    border: $border;
-    box-shadow: $shadow;
-    padding: 1rem;
-    border-radius: $border-radius;
+  cursor: pointer;
+  background: map-get($colors, black);
+  color: map-get($colors, white);
+  font-weight: 600;
+  text-transform: uppercase;
+  width: 100%;
+  padding: 1rem 5rem;
+  height: 5rem;
+  margin: 1rem 0;
+  border: $border;
+  box-shadow: $shadow;
+  padding: 1rem;
+  border-radius: $border-radius;
 
-    a {
-        text-decoration: none;
-        color: map-get($colors, white);
-    }
+  a {
+    text-decoration: none;
+    color: map-get($colors, white);
+  }
 }
 
 .danger-btn {
-    background: map-get($colors, red);
-    color: map-get($colors, white);
+  background: map-get($colors, red);
+  color: map-get($colors, white);
 }
 
 nav {
+  ul,
+  ol {
+    padding: 0;
+    margin: 0;
 
-    ul,
-    ol {
-        padding: 0;
-        margin: 0;
+    li {
+      list-style: none;
 
-        li {
-            list-style: none;
+      a {
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+      }
 
-            a {
-                text-decoration: none;
-                padding: .5rem 1rem;
-            }
-
-            .login {
-                text-decoration: underline;
-            }
-        }
+      .login {
+        text-decoration: underline;
+      }
     }
+  }
 }
 
 // add to fave icon
 .heart {
-    background: white;
-    color: map-get($colors, black);
-    border-radius: 50%;
-    padding: 1rem;
-    margin: 1rem;
-    cursor: pointer;
+  background: map-get($colors, white);
+  color: map-get($colors, black);
+  border-radius: 50%;
+  padding: 1rem;
+  cursor: pointer;
+  box-shadow: $shadow;
 }
 
 // hamburger close icon
 .cross {
-    font-size: 5rem;
+  font-size: 5rem;
 }
 
 .link {
-    text-decoration: underline;
-    cursor: pointer;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .warranty-container {
-    display: flex;
-    padding: 2rem 0 4rem 0;
+  display: flex;
+  padding: 2rem 0 4rem 0;
 
-    i {
-        padding-right: 1rem;
-        font-size: 2.5rem;
-    }
+  i {
+    padding-right: 1rem;
+    font-size: 2.5rem;
+  }
 
-    p {
-        margin: 0;
-    }
+  p {
+    margin: 0;
+  }
 }
 
 .faq {
+  div {
+    padding-top: 1rem;
 
-    div {
-        padding-top: 1rem;
-
-        i {
-            font-size: 1.6rem;
-            padding-right: 1rem;
-            color: map-get($colors, grey);
-        }
-
-        span {
-            text-decoration: underline;
-            cursor: pointer;
-        }
+    i {
+      font-size: 1.6rem;
+      padding-right: 1rem;
+      color: map-get($colors, grey);
     }
+
+    span {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}
+
+.fixed-position {
+  position: fixed !important;
 }
 
 .hidden {
-    display: none !important;
+  display: none !important;
 }
 
 table {
-    width: 100%;
+  width: 100%;
 
-    tr {
-        display: flex;
-        justify-content: space-between;
-        padding: 0.5rem 0;
+  tr {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
 
-        span {
-            font-weight: 600;
-        }
+    span {
+      font-weight: 600;
     }
+  }
 }
 
 .payment {
-    padding-top: 2rem;
-    width: 10rem;
-    display: flex;
-    justify-content: space-between;
+  padding-top: 2rem;
+  width: 10rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 .loader {
-    display: flex;
-    justify-content: center;
-    margin: 10rem 0;
+  display: flex;
+  justify-content: center;
+  margin: 10rem 0;
 }
 
 .loader:after {
-    content: " ";
-    display: block;
-    width: 4rem;
-    height: 4rem;
-    border: 10px solid map-get($colors, purple);
-    border-top: none;
-    border-bottom: none;
-    animation: loader 4s linear infinite;
-    border-radius: 50%;
+  content: " ";
+  display: block;
+  width: 4rem;
+  height: 4rem;
+  border: 10px solid map-get($colors, purple);
+  border-top: none;
+  border-bottom: none;
+  animation: loader 4s linear infinite;
+  border-radius: 50%;
 }
 
 @keyframes loader {
-    from {
-        transform: rotate(0deg);
-    }
+  from {
+    transform: rotate(0deg);
+  }
 
-    to {
-        transform: rotate(360deg);
-    }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .message {
-    width: 100%;
-    padding: 1rem;
-    margin: 0.4rem 0;
+  width: 100%;
+  padding: 1rem;
+  margin: 0.4rem 0;
 }
 
 .message-success {
-    font-weight: bolder;
+  font-weight: bolder;
 }
 
 .message-error {
-    color: map-get($colors, red);
+  color: map-get($colors, red);
 }
 
 .message-error-center {
-    text-align: center;
-    padding: 5rem 0;
+  text-align: center;
+  padding: 5rem 0;
 }
 
 .btn-go-back {
-    width: fit-content;
+  width: fit-content;
 }
 
 .disabled {
-    filter: opacity(40%)
+  filter: opacity(40%);
 }

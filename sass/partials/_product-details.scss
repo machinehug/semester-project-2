@@ -1,88 +1,85 @@
 .wrapper {
+  .container {
+    section {
+      width: 100%;
 
-    .container {
-
-        section {
-            width: 100%;
-
-            @media only screen and (min-width: map-get($media-widths, tablet)) {
-                width: 49%;
-            }
-        }
+      @media only screen and (min-width: map-get($media-widths, tablet)) {
+        width: 49%;
+      }
     }
+  }
 }
 
 // breadcrumbs
 nav {
-    margin: 0 auto;
-    width: 100%;
+  margin: 0 auto;
+  width: 100%;
 
-    ol {
-        display: flex;
-        justify-content: center;
-        margin: 2rem 0;
+  ol {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
 
-        li a:hover {
-            text-decoration: underline;
-        }
-
-        li:last-child {
-            text-decoration: underline;
-
-            &:after {
-                content: "";
-            }
-        }
-
-        li:after {
-            content: " / ";
-        }
+    li a:hover {
+      text-decoration: underline;
     }
+
+    li:last-child {
+      text-decoration: underline;
+
+      &:after {
+        content: "";
+      }
+    }
+
+    li:after {
+      content: " / ";
+    }
+  }
 }
 
 .product-details-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  width: 100%;
+
+  section {
+    max-width: 40rem;
+    padding: 0 3rem;
+  }
+
+  p {
+    max-width: 40rem;
+  }
+
+  .description {
+    padding: 2rem 0;
+  }
+
+  .price {
+    padding-top: 1rem;
+  }
+
+  .go-to-cart-btn {
+    background-color: map-get($colors, purple);
+  }
+
+  .product-details-img {
     display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
+    justify-content: flex-end;
+    background-size: cover;
     width: 100%;
+    max-width: 200rem;
+    height: 40rem;
 
-    section {
-        max-width: 40rem;
-        padding: 0 3rem;
+    @media only screen and (min-width: map-get($media-widths, tablet)) {
+      height: 60rem;
     }
 
-    p {
-        max-width: 40rem;
+    .heart {
+      height: fit-content;
+      font-size: 3rem;
     }
-
-    .description {
-        padding: 2rem 0;
-    }
-
-    .price {
-        padding-top: 1rem;
-    }
-
-    button {
-        max-width: 25rem;
-    }
-
-    .product-details-img {
-        display: flex;
-        justify-content: flex-end;
-        background: url("/img/index/cards/card1.jpg") center no-repeat;
-        background-size: cover;
-        width: 100%;
-        max-width: 200rem;
-        height: 40rem;
-
-        @media only screen and (min-width: map-get($media-widths, tablet)) {
-            height: 60rem;
-        }
-
-        .heart {
-            height: fit-content;
-            font-size: 3rem;
-        }
-    }
+  }
 }

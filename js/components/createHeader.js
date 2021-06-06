@@ -21,6 +21,9 @@ export default function createHeader() {
                 <li><a href="/login.html"><i class="far fa-smile"></i> Login</a></li>`;
     };
 
+    // had to add an invisible div at the bottom of the mobile nav container, because it didn't want to scroll to the bottom
+    // I got the "code" from https://stackoverflow.com/questions/37287506/scrollbar-not-scrolling-completely-down-the-page/37287769
+
     const header = document.querySelector(".header-container");
 
     header.innerHTML = `
@@ -60,11 +63,11 @@ export default function createHeader() {
                 </nav>
                 <nav>
                     <ul>
-                        <li><a href="#"><i class="fas fa-heart"></i></a></li>
+                        <li><a href="/faves.html"><i class="fas fa-heart"></i></a></li>
                         <li>
                             <a href="/cart.html">
                                 <i class="fas fa-shopping-cart"></i>
-                                <span>${howManyItemsInCart}</span>
+                                <span class="cart-sum">${howManyItemsInCart}</span>
                             </a>
                         </li>
                     </ul>
@@ -74,28 +77,45 @@ export default function createHeader() {
     </header>
     
     <div class="nav-mobile hidden">
-        <div></div>
-        <nav>
-            <ul>
-                <li><a href="#">About us</a></li>
-                <li><a href="/menu.html">Menu</a></li>
-                <li><a href="#">Gifts</a></li>
-                <li><a href="#">Shops</a></li>
-                <li><a href="#">Join the fun!</a></li>
-            </ul>
-        </nav>
-        <nav>
-            <ul>
-                <li><a href="/cart.html"><i class="fas fa-shopping-cart"></i> Cart (${howManyItemsInCart})</a></li>
-                <li><a href="#"><i class="fas fa-heart"></i> Faves</a></li>
-            </ul>
-        </nav>
-        <nav>
-            <ul>
-                <li><a href="#">Customer service</a></li>
-                ${links}
-            </ul>
-        </nav>
+        <div class="nav-mobile-title-container"><h1>Navigation</h1></div>
+        <div class="nav-mobile-inner">
+            <nav>
+                <ul>
+                    <li><a href="/menu.html">Menu</a></li>
+                    <li><a href="#">Gifts</a></li>
+                    <li><a href="#">Shops</a></li>
+                    <li><a href="#">Inspo</a></li>
+                    <li><a href="#">Recipes</a></li>
+                </ul>
+            </nav>
+            <nav>
+                <ul>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Join the fun!</a></li>
+                </ul>
+            </nav>
+            <nav>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Ingredient info</a></li>
+                </ul>
+            </nav>
+            <nav>
+                <ul>
+                    <li><a href="/cart.html"><i class="fas fa-shopping-cart"></i> Cart (${howManyItemsInCart})</a></li>
+                    <li><a href="/faves.html"><i class="fas fa-heart"></i> Faves</a></li>
+                </ul>
+            </nav>
+            <nav>
+                <ul>
+                    <li><a href="#">Customer service</a></li>
+                    ${links}
+                </ul>
+            </nav>
+            <div style="height: 200px;"></div>
+        </div>
     </div>`;
 
     // match the href in the html tag with the actual current url
@@ -118,8 +138,10 @@ export default function createHeader() {
 
 function navSlideIn() {
 
+    const body = document.body;
     const nav = document.querySelector(".nav-mobile");
 
+    body.classList.toggle("fixed-position");
     nav.classList.toggle("hidden");
     nav.style.animation = "nav-mobile-slide-in 2s";
 

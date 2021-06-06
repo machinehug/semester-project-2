@@ -9,6 +9,9 @@ export const cartKey = "cart";
 export const tokenKey = "token";
 export const userKey = "username";
 
+// faves
+export const faveKey = "faves";
+
 // cart
 export const shippingCost = 0;
 

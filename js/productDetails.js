@@ -2,8 +2,7 @@ import { baseUrl, apiUrl, cartKey } from './constants/variables.js';
 import createHeader from './components/createHeader.js';
 import createFooter from './components/createFooter.js';
 import createAdminBanner from './components/createAdminBanner.js';
-import { getLocalStorage } from './constants/handleStorage.js';
-import addProductToCart from "./constants/addProductToCart.js";
+import { getLocalStorage, saveToLocalStorage } from './constants/handleStorage.js';
 import displayMessage from './constants/displayMessage.js';
 
 (async function () {
@@ -11,21 +10,23 @@ import displayMessage from './constants/displayMessage.js';
     const queryString = document.location.search;
     const params = new URLSearchParams(queryString);
     const id = params.get("id");
-
     const url = baseUrl + apiUrl + id;
 
     try {
         const response = await fetch(url);
         const json = await response.json();
+        console.log("menu item", json);
 
         createHeader();
         createAdminBanner();
         createProductDetails(json);
         createFooter();
-    } catch {
-        const container = document.querySelector(".container");
+    } catch (error) {
+        console.log(error);
+        const container = document.querySelector(".product-details-container");
         container.innerHTML = displayMessage("message-error message-error-center", "An error occurred. Please try again later.");
         createHeader();
+        createFooter();
     };
 })();
 
@@ -48,7 +49,6 @@ function createProductDetails(el) {
     };
 
     const container = document.querySelector(".product-details-container");
-
     container.innerHTML = `
             <nav>
                 <ol>
@@ -58,7 +58,7 @@ function createProductDetails(el) {
                 </ol>
             </nav>
 
-            <section class="product-details-img" style="background: url('${el.image_url}') center no-repeat; background-size: cover;>
+            <section class="product-details-img" style="background: url('/strapi/public/${el.image.url}') center no-repeat; background-size: cover;>
                 <i class="fas fa-heart heart"></i>
             </section>
 
@@ -80,6 +80,7 @@ function createProductDetails(el) {
                 </p>
                 <div>
                     <button class="add-to-cart-btn ${addToCartBtnCss}" data-id="${el.id}">${addToCartBtnTxt}</button>
+                    <button class="go-to-cart-btn"><a href="/cart.html">Go to cart</a></button>
                 </div>
                 <div class="warranty-container">
                     <i class="fas fa-thumbs-up"></i>
@@ -106,21 +107,23 @@ function createProductDetails(el) {
                 </div>
             </section>`;
 
-    (async function () {
+    const addToCartBtn = document.querySelector(".add-to-cart-btn");
+    addToCartBtn.addEventListener("click", (event) => {
 
-        const url = baseUrl + apiUrl;
+        const storage = getLocalStorage(cartKey);
+        const btn = event.target;
+        const compareId = parseInt(btn.dataset.id);
+        const isInStorage = storage.find(item => item.id === compareId);
 
-        try {
-            const response = await fetch(url);
-            const json = await response.json();
-
-            addProductToCart(json);
-        } catch {
-            const loader = document.querySelector(".loader");
-            loader.style.display = "none";
-            const container = document.querySelector(".container");
-            container.innerHTML = displayMessage("message-error message-error-center", "An error occurred. Please try again later.");
-            createHeader();
+        if (isInStorage === undefined || isInStorage === null || isInStorage === false) {
+            storage.push(el);
+            saveToLocalStorage(cartKey, storage);
+        } else {
+            const itemsToAdd = storage.filter(item => item.id !== compareId);
+            saveToLocalStorage(cartKey, itemsToAdd);
         };
-    })();
+
+        createProductDetails(el);
+        createHeader();
+    });
 };

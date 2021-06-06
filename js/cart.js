@@ -1,8 +1,7 @@
-import { getLocalStorage, saveToLocalStorage } from './constants/handleStorage.js';
+import { getLocalStorage, saveToLocalStorage, handleLocalStorage } from './constants/handleStorage.js';
 import { cartKey, tax, shippingCost } from './constants/variables.js';
 import createHeader from './components/createHeader.js';
 import createFooter from './components/createFooter.js';
-import handleCart from './constants/handleCart.js';
 import createAdminBanner from './components/createAdminBanner.js';
 
 (function () {
@@ -17,9 +16,7 @@ export function createCart() {
     const cart = getLocalStorage(cartKey);
 
     const container = document.querySelector(".cart-container");
-
     container.innerHTML = `
-
             <section class="cart-items-container">
                 <h1>Your cart</h1>
                 ${createListOfItems(cart)}
@@ -30,7 +27,7 @@ export function createCart() {
                 <table class="total-container">
                     <tr>
                         <td>TOTAL</td>
-                        <td class="sum">$ ${calculatePrice(cart)}</td>
+                        <td class="sum">$${calculatePrice(cart)}</td>
                     </tr>
                 </table>
 
@@ -39,11 +36,11 @@ export function createCart() {
                 <table class="cost-container">
                     <tr>
                         <td><span>Delivery</span></td>
-                        <td>$ ${shippingCost}</td>
+                        <td>$${shippingCost}</td>
                     </tr>
                     <tr>
                         <td><span>Tax</span></td>
-                        <td class="tax">$ ${tax(cart)}</td>
+                        <td class="tax">$${tax(cart)}</td>
                     </tr>
                 </table>
 
@@ -80,8 +77,6 @@ export function createCart() {
 
             </section>`;
 
-    console.log(cart)
-
     const removeFromCartBtns = document.querySelectorAll(".cross");
     removeFromCartBtns.forEach(btn => btn.addEventListener("click", (event) => onAddToCartBtnClick(event, cart)));
 
@@ -96,6 +91,7 @@ export function createCart() {
 
     const quantity = document.querySelectorAll(".quantity");
     quantity.forEach(el => el.addEventListener("change", (event) => cal(event)));
+
     function cal(event) {
 
         const productId = parseInt(event.target.dataset.id);
@@ -109,19 +105,17 @@ export function createCart() {
                 saveToLocalStorage(cartKey, cart);
 
                 const sumContainer = document.querySelector(".sum");
-                sumContainer.innerHTML = "$ " + calculatePrice(cart);
+                sumContainer.innerHTML = "$" + calculatePrice(cart);
 
                 const taxContainer = document.querySelector(".tax");
-                taxContainer.innerHTML = "$ " + tax(cart);
+                taxContainer.innerHTML = "$" + tax(cart);
             };
         });
-
-        console.log(cart)
     };
 };
 
 function onAddToCartBtnClick(event, arr) {
-    handleCart(event, arr);
+    handleLocalStorage(event, arr, cartKey)
     createCart(arr);
     createHeader();
 };
@@ -132,25 +126,30 @@ function createListOfItems(arr) {
 
     arr.forEach(el => {
 
+        if (!el.quantity || el.quantity === 0 || isNaN(el.quantity)) {
+            el.quantity = 1
+        };
+
         html += `
                 <div class="cart-item">
                     <div class="cart-item-product-info">
+
                         <a href="product-details.html?id=${el.id}">
-                            <div class="cart-img" style="background: url('${el.image_url}') center no-repeat; background-size: cover;"></div>
+                            <div class="cart-img" style="background: url('/strapi/public/${el.image.url}') center no-repeat; background-size: cover;"></div>
                         </a>
-                        <div>
-                            <div>
-                                ${el.title}
-                            </div>
-                            <div class="cart-item-info-link-container">
-                                <i class="fas fa-ice-cream"></i> <span class="link">Ingredients</span> info.
-                            </div>
+
+                        <div>${el.title}</div>
+
+                        <div class="cart-item-info-link-container">
+                            <i class="fas fa-ice-cream"></i> <span class="link">Ingredients</span>
                         </div>
-                    </div>
-                    <div class="cart-item-input">
-                        <span class="cart-item-price">$ ${el.price}</span>
-                        <input class="quantity" max="15" min="1" data-id="${el.id}" onkeydown="return false;" type="number" value="${el.quantity}">
-                        <i class="fas fa-times cross" data-id="${el.id}"></i>
+
+                        <div class="cart-item-input">
+                            <span class="cart-item-price">$${el.price}</span>
+                            <input class="quantity" max="15" min="1" data-id="${el.id}" type="number" value="${el.quantity}">
+                            <i class="fas fa-times cross" data-id="${el.id}"></i>
+                        </div>
+
                     </div>
                 </div>`;
     });

@@ -1,84 +1,76 @@
-// TEMP IMG
-.card1-product {
-    background: url("/img/index/cards/card3.jpg") center no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 30rem;
-}
-
 .products-wrapper {
-    min-width: 100%;
+  min-width: 100%;
 }
 
 .add-to-cart-btn {
-    background: map-get($colors, black);
-    color: map-get($colors, white);
-    padding: 1.7rem 5rem;
-    min-width: 100%;
-    margin-top: 3rem;
+  background: map-get($colors, black);
+  color: map-get($colors, white);
+  padding: 1.7rem 5rem;
+  min-width: 100%;
+  margin-top: 3rem;
 
-    a {
-        color: map-get($colors, white);
-    }
+  a {
+    color: map-get($colors, white);
+  }
 }
 
 .cards {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 2rem;
-    min-width: 100%;
-    justify-content: center;
-    text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  min-width: 100%;
+  justify-content: center;
+  text-align: center;
 
-    h1,
-    h2 {
-        margin: 0;
+  h1,
+  h2 {
+    margin: 0;
+  }
+
+  .card-product {
+    width: 20%;
+    min-width: 32rem;
+    min-height: 40rem;
+    background: map-get($colors, lightgrey);
+    box-shadow: $shadow;
+    margin: 1rem;
+
+    a {
+      text-decoration: none;
+
+      div {
+        display: flex;
+        align-items: flex-end;
+        justify-content: left;
+        text-decoration: none;
+      }
     }
 
-    .card-product {
-        width: 20%;
-        min-width: 32rem;
-        min-height: 40rem;
-        background: map-get($colors, lightgrey);
-        border: $border;
-        box-shadow: $shadow;
-        margin: 1rem;
+    .card-product-info {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 26rem;
+      margin: 0 auto;
+      padding: 2rem;
 
-        a {
-            text-decoration: none;
+      // menu item: Create your own!
+      .card-product-create-txt {
+        text-align: center;
+        width: 100%;
+      }
 
-            div {
-                display: flex;
-                align-items: flex-end;
-                justify-content: left;
-                text-decoration: none;
-            }
-        }
-
-        .card-product-info {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            max-width: 26rem;
-            margin: 0 auto;
-            padding: 2rem;
-
-            // menu item: Create your own!
-            .card-product-create-txt {
-                text-align: center;
-                width: 100%;
-            }
-
-            .card-product-info-txt {
-                display: flex;
-                justify-content: space-between;
-                margin-bottom: 1rem;
-            }
-        }
+      .card-product-info-txt {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        align-items: center;
+      }
     }
+  }
 }
 
 .added-to-cart {
-    background: map-get($colors, pink) !important;
-    font-weight: bold;
+  background: map-get($colors, pink);
+  font-weight: bold;
 }

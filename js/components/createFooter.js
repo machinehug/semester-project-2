@@ -1,7 +1,6 @@
 export default function createFooter() {
 
     const footer = document.querySelector("footer");
-
     footer.innerHTML = `
     <footer class="footer">
         <div class="container">
@@ -66,7 +65,7 @@ export default function createFooter() {
             </div>
         </div>
         <div class="footer-bottom">
-                Copyright © 2001-2020 nicecream. All rights reserved.
+                Copyright © 2001-2021 nicecream. is a fake website. All rights reserved.
             </div>
     </footer>`;
 };

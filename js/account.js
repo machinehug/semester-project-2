@@ -15,9 +15,7 @@ if (isLoggedIn) {
 function createAdminHomePage() {
 
     const container = document.querySelector(".account-and-login-container");
-
     container.innerHTML = `
-
             <section class="account-options-container">
                 <a href="account-edit-products.html"><button><i class="far fa-edit"></i> Edit product</button></a>
                 <a href="account-add-new-product.html"><button><i class="fas fa-plus"></i> Add new product</button></a>

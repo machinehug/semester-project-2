@@ -1,82 +1,94 @@
 form {
+  display: flex;
+  flex-direction: column;
+
+  div {
     display: flex;
     flex-direction: column;
+    margin: 1rem 0;
 
-    div {
-        display: flex;
-        flex-direction: column;
-        margin: 1rem 0;
-
-        label {
-            margin-bottom: .7rem;
-        }
+    label {
+      margin-bottom: 0.7rem;
     }
+  }
 }
 
 input {
-    border: $border;
-    box-shadow: $shadow;
-    padding: 1.2rem;
-    height: 5rem;
-    border-radius: $border-radius;
-
+  border: $border;
+  box-shadow: $shadow;
+  padding: 1.2rem;
+  height: 5rem;
+  border-radius: $border-radius;
 }
 
 .input-wrapper {
+  input {
+    min-width: 25rem;
 
-    input {
-        max-width: 35rem;
-        min-width: 25rem;
-
-        @media only screen and (min-width: map-get($media-widths, tablet)) {
-            max-width: 60rem;
-            min-width: 40rem;
-        }
+    @media only screen and (min-width: map-get($media-widths, tablet)) {
+      max-width: 60rem;
+      min-width: 40rem;
     }
+  }
 
-    button {
-        border-radius: 0%;
-        border-top-right-radius: $border-radius;
-        border-bottom-right-radius: $border-radius;
-        font-weight: normal;
-        margin-left: -10px;
-        width: fit-content;
+  button {
+    border-radius: 0%;
+    border-top-right-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+    font-weight: normal;
+    margin-left: -10px;
+    width: fit-content;
 
-        i {
-            font-size: 1.4rem;
-        }
+    i {
+      font-size: 1.4rem;
     }
+  }
 }
 
 .edit-featured-container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    #featured {
-        margin-right: 1rem;
-        height: fit-content;
-    }
+  #featured {
+    margin-right: 1rem;
+    height: fit-content;
+  }
 }
 
 .quantity {
-    width: 6rem;
+  width: 6rem;
 }
 
 .menu-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  .input-wrapper {
+    width: 100%;
+    max-width: 70rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
 
-    .input-wrapper,
-    div,
-    span {
-        margin: 1rem;
+    input {
+      width: 100% !important;
     }
+  }
+
+  .input-wrapper,
+  div,
+  span {
+    margin: 1rem;
+  }
 }
 
 textarea {
-    max-width: 100%;
-    min-width: 100%;
-    padding: 1rem;
+  max-width: 100%;
+  min-width: 100%;
+  padding: 1rem;
+  border: $border;
+  border-radius: $border-radius;
+  box-shadow: $shadow;
 }

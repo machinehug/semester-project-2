@@ -4,12 +4,10 @@ import { isLoggedIn } from './constants/loggedInStatus.js';
 import createFooter from './components/createFooter.js';
 
 if (!isLoggedIn) {
-
     createHeader();
     createLoginForm();
     createFooter();
 } else {
-
     location.href = "/account.html";
 };
 

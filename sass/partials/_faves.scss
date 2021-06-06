@@ -1,0 +1,24 @@
+.faves-items-container {
+  min-width: 100%;
+  text-align: center;
+
+  @media only screen and (max-width: map-get($media-widths, mobile)) {
+    min-width: 100%;
+  }
+
+  h1 {
+    margin: 1rem 0 2rem 0;
+  }
+
+  .faves-items-container-inner {
+    display: flex;
+    justify-content: space-evenly;
+    flex-flow: row wrap;
+    margin-top: 5rem;
+  }
+
+  .add-all-to-cart {
+    max-width: 30rem;
+    background: map-get($colors, pink);
+  }
+}

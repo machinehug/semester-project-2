@@ -24,7 +24,7 @@ if (isLoggedIn) {
             createMenuInput(json.length);
             createProductsList(json);
             createFooter();
-            handleSearch(json);
+            handleSearch(json, createProductsList);
         } catch {
             const container = document.querySelector(".container");
             container.innerHTML = displayMessage("message-error message-error-center", "An error occurred. Please try again later.");
@@ -64,7 +64,7 @@ function createProductsList(arr) {
 
         container.innerHTML += `
                     <div class="card-product">
-                        <div class="card-product-img" style="background: url('${el.image_url}') center no-repeat; background-size: cover;"></div>
+                        <div class="card-product-img" style="background: url('/strapi/public/${el.image.url}') center no-repeat; background-size: cover;"></div>
                         <div class="card-product-info">
                             <div class="card-product-info-txt">
                                 <span>${el.title}</span>
@@ -86,14 +86,11 @@ function deleteProduct(event) {
     const deleteSuccessMessage = document.querySelector(".message-delete-success");
     const deleteContainer = document.querySelector(".delete-container");
     const cancelDeleteBtn = document.querySelector(".btn-delete-cancel");
-    const hamburger = document.querySelector(".hamburger");
     const btns = document.querySelectorAll("button");
     const body = document.body;
     const deleteBtnConfirm = document.querySelector(".btn-delete-confirm");
 
     deleteContainer.classList.remove("hidden");
-    // the hamburger is visible for some reason when you open the delete container
-    hamburger.classList.add("hidden");
 
     // make the page unscrollable
     body.style.overflow = "hidden";
@@ -107,7 +104,6 @@ function deleteProduct(event) {
 
     cancelDeleteBtn.addEventListener("click", () => {
         deleteContainer.classList.add("hidden");
-        hamburger.classList.remove("hidden");
         body.style.overflow = "initial";
 
         for (let i = 0; i < btns.length; i++) {
@@ -148,57 +144,3 @@ function deleteProduct(event) {
         };
     };
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-function deleteProduct(event) {
-
-    (async function () {
-
-        const deleteContainer = document.querySelector(".delete-container");
-        deleteContainer.classList.remove("hidden");
-
-        const cancelDeleteBtn = document.querySelector(".btn-delete-cancel");
-        cancelDeleteBtn.addEventListener("click", () => deleteContainer.classList.add("hidden"));
-
-        const deleteBtnConfirm = document.querySelector(".btn-delete-confirm");
-        deleteBtnConfirm.addEventListener("click", () => {
-
-            const token = getLocalStorage(tokenKey);
-            const id = event.target.dataset.id;
-            const url = baseUrl + apiUrl + id;
-
-            const method = "DELETE";
-            const headersData = { "Authorization": `Bearer ${token}` };
-            const strapiSettings = getStrapiSettings("", method, headersData);
-
-            try {
-                const response = await fetch(url, strapiSettings);
-                const json = await response.json();
-
-                if (json.error) {
-                    console.log(json.error)
-                } else {
-                    const getCurrentProducts = await fetch(baseUrl + apiUrl);
-                    const currentProducts = await getCurrentProducts.json();
-                    console.log("success");
-                    createProductsList(currentProducts);
-                };
-            } catch (error) {
-                console.log(error)
-            };
-        });
-    })();
-};*/

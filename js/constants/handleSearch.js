@@ -1,10 +1,8 @@
-import createMenu from "../components/createMenu.js";
 import displayMessage from "./displayMessage.js";
 
-export default function handleSearch(arr) {
+export default function handleSearch(arr, updateCallback = function () { }) {
 
     const searchBar = document.querySelector(".search");
-
     searchBar.onkeyup = (event) => {
 
         const searchValue = event.target.value;
@@ -14,7 +12,7 @@ export default function handleSearch(arr) {
             return el.title.toLowerCase().includes(searchValue.toLowerCase()) || el.description.toLowerCase().includes(searchValue.toLowerCase());
         });
 
-        createMenu(searchResults);
+        updateCallback(searchResults);
 
         if (searchResults.length === 0) {
             const container = document.querySelector(".products-wrapper .cards");
